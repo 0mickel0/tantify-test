@@ -9,6 +9,8 @@ import reducers from './reducers';
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
-ReactDOM.render(<Provider store={createStoreWithMiddleware(reducers)}>
-  <App />
-</Provider>, document.querySelector('#root'));
+ReactDOM.render(
+  <Provider store={createStoreWithMiddleware(reducers)}>
+    <App />
+  </Provider>, document.querySelector('#root')
+);

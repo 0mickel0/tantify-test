@@ -7,12 +7,13 @@ class SearchBar extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { term: ''};
+    this.state = { term: ""};
 
     // bind context; undefind of 'this.setState'
-    this.onInputChange = this.onInputChange.bind(this)
-    this.onFormSubmet = this.onFormSubmet.bind(this)
+    this.onInputChange = this.onInputChange.bind(this);
+    this.onFormSubmet = this.onFormSubmet.bind(this);
   }
+
   onInputChange(event){
     this.setState({ term: event.target.value });
   }
@@ -20,7 +21,7 @@ class SearchBar extends Component {
   onFormSubmet(event){
     event.preventDefault();
     this.props.fetchWeather(this.state.term);
-    this.setState({term: ''});
+    this.setState({term: ""});
   }
 
   render() {
@@ -30,7 +31,8 @@ class SearchBar extends Component {
           placeholder="find something"
           className="form-control"
           value={this.state.term}
-          onChange={this.onInputChange}/>
+          onChange={this.onInputChange}
+        />
         <span className="input-group-btn">
           <button type="submit" className="btn btn-secondary">Submit</button>
         </span>
@@ -40,7 +42,7 @@ class SearchBar extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({fetchWeather}, dispatch)
+  return bindActionCreators({ fetchWeather }, dispatch);
 }
 
-export default connect (null, mapDispatchToProps)(SearchBar)
+export default connect(null, mapDispatchToProps)(SearchBar);
